@@ -3,19 +3,15 @@
 #include <bits/stdc++.h>
 
 #ifdef __linux__
-	#include <sys>
+	#include <cstdlib>
 #elif _WIN32
 	#include <windows.h>
-#else
-	#include <sys>
 #endif
 
 using namespace std;
 using u64 = unsigned long long;
 
 namespace fs = std::filesystem;
-
-struct stat sb;
 
 int main(int argc, char* argv[]) {
 
