@@ -14,10 +14,10 @@ Usage: senyv <FILE> <EXT_IN> <EXT_OUT> <EXT_USR> <CHECKER>
          EXT_USR: extension of user's output file, default: usr
          CHECKER: file name of checker(cpp), without extension name, not inneed
   Possible formats:
-         >$ eny <FILE>
-         >$ eny <FILE> <CHECKER>
-         >$ eny <FILE> <EXT_IN> <EXT_OUT> <EXT_USR>
-         >$ eny <FILE> <EXT_IN> <EXT_OUT> <EXT_USR> <CHECKER>
+         >$ senyv <FILE>
+         >$ senyv <FILE> <CHECKER>
+         >$ senyv <FILE> <EXT_IN> <EXT_OUT> <EXT_USR>
+         >$ senyv <FILE> <EXT_IN> <EXT_OUT> <EXT_USR> <CHECKER>
 ```
 
 You have to put it in your work directory like this:
@@ -51,8 +51,8 @@ Then you can use it like:
 
 It will gives you some result if conditions listed here were satisfied.
 
-1. If your source file/checker cannot be compiled: `[Error] source file:fileName.cpp does not pass the compilation.`
-2. If you got the right answer: `Ok, accepted, time = <time>ms/s.`
+1. If your source file/checker cannot be compiled: `[Error] source file: fileName.cpp does not pass the compilation.`
+2. If you got the right answer: `Accepted, time = <time>ms/s.`
 3. If your answer is not correct: `Wrong answer.`
 
 selfEnonyaval will automatically **sort test cases with lexicographical order**, and it will **stop** when you got an incorrect answer.
