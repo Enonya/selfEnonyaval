@@ -18,17 +18,17 @@ int main(int argc, char* argv[]) {
 	string sep = "#====================================#\n";
 
 	if(argc < 2) {
-		cout << "Usage: eny <FILE> <EXT_IN> <EXT_OUT> <EXT_USR> <CHECKER>" << endl;
+		cout << "Usage: senyv <FILE> <EXT_IN> <EXT_OUT> <EXT_USR> <CHECKER>" << endl;
 		cout << "\t FILE: cpp source file, without extension name" << endl;
 		cout << "\t EXT_IN: extension of input file, default: in" << endl;
 		cout << "\t EXT_OUT: extension of output file (jury's out), default: out" << endl;
 		cout << "\t EXT_USR: extension of user's output file, default: usr" << endl;
 		cout << "\t CHECKER: file name of checker(cpp), without extension name, not inneed" << endl;
 		cout << "  Possible formats:" << endl;
-		cout << "\t >$ eny <FILE>" << endl;
-		cout << "\t >$ eny <FILE> <CHECKER>" << endl;
-		cout << "\t >$ eny <FILE> <EXT_IN> <EXT_OUT> <EXT_USR>" << endl;
-		cout << "\t >$ eny <FILE> <EXT_IN> <EXT_OUT> <EXT_USR> <CHECKER>" << endl;
+		cout << "\t >$ senyv <FILE>" << endl;
+		cout << "\t >$ senyv <FILE> <CHECKER>" << endl;
+		cout << "\t >$ senyv <FILE> <EXT_IN> <EXT_OUT> <EXT_USR>" << endl;
+		cout << "\t >$ senyv <FILE> <EXT_IN> <EXT_OUT> <EXT_USR> <CHECKER>" << endl;
 		return 0;
 	}
 
@@ -46,17 +46,17 @@ int main(int argc, char* argv[]) {
 	// compile source file.
 	cout << endl << "Compiling file: " << fileName << ".cpp" << endl;
 	if(system(("g++ " + fileName + ".cpp -o" + fileName + " -std=c++14 -Wall -Wextra -Wshadow -O2").c_str())) {
-		cout << "[Error] source file:" << fileName << ".cpp does not pass the compilation." << endl;
+		cout << "[Error] source file: " << fileName << ".cpp does not pass the compilation." << endl;
 		return 0;
 	}
-	cout << "Compile success" << endl << endl;
+	cout << "Compile success." << endl << endl;
 	
 	// compile checker file.
 	if(chkName != "$$$") {
 		cout << "Compiling file: " << chkName << ".cpp" << endl;
 		if(system(("g++ " + chkName + ".cpp -o" + chkName + " -std=c++17 -Wall -Wextra -Wshadow -O2").c_str())) {
-			cout << "[Error] source file:" << chkName << ".cpp does not pass the compilation." << endl;
-			cout << "Compile success" << endl << endl;
+			cout << "[Error] source file: " << chkName << ".cpp does not pass the compilation." << endl;
+			cout << "Compile success." << endl << endl;
 		}
 		return 0;
 	}
@@ -94,11 +94,11 @@ int main(int argc, char* argv[]) {
 		
 #ifdef _WIN32
 		if(!system(("fc " + ts + extOut + " " + ts + extUsr).c_str())) 
-			cout << "Ok, accepted, time = " << runTime << "ms." << endl;
+			cout << "Accepted, time = " << runTime << "ms." << endl;
 		else return cout << "Wrong answer." << endl << sep, 0;
 #else
 		if(!system(("diff " + ts + extOut + " " + ts + extUsr).c_str())) 
-			cout << "Ok, accepted, time = " << runTime << "s." << endl;
+			cout << "Accepted, time = " << runTime << "s." << endl;
 		else return cout << "Wrong answer." << endl << sep, 0;
 #endif
 	}
@@ -106,3 +106,7 @@ int main(int argc, char* argv[]) {
 
 	return 0;
 }
+
+// TODO: timeout chekck.
+// TODO: memory testing.
+// TODO: color support.
