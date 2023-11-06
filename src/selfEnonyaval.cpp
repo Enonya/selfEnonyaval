@@ -93,7 +93,7 @@ int main(int argc, char* argv[]) {
 		u64 runTime = (clock() - t);
 		
 #ifdef _WIN32
-		if(!system(("fc " + ts + extOut + " " + ts + extUsr).c_str())) 
+		if(!system(("fc " + ts + extOut + " " + ts + extUsr + " /w").c_str())) 
 			cout << "Accepted, time = " << runTime << "ms." << endl;
 		else return cout << "Wrong answer." << endl << sep, 0;
 #else
